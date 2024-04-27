@@ -1,81 +1,19 @@
 /******* Change Box Model ***************/
-
+/*----------------Root Variables-----------------------*/
 :root{
---primary-color: rgb( 87, 189, 233);
+--primary-color: rgb(0,78,97);
 --secondary-color: white;
+--third-color: black;
 --text-color-one: black;
 --text-color-two: white;
   font-family: "Merriweather Sans", sans-serif;
 }
-/* ul, li, a{
-  list-style-type: none;
-  text-decoration: none;
-  color: var(--text-color-one);
-} */
-/* this is for the larger screens */
-@media screen and (min-width: 460px) {
-nav{
-    background-color: var(--secondary-color);
-    width: fit-content;
-    margin: 0 auto;
-}
-ul{
-    list-style-type: none;
-}
-nav ul{
-  display: inline-flex;
-  flex-direction: row;
-  border: 1px solid var(--text-color-one);
-  margin: 0 auto;
-  padding: 0;
-  background-color: var(--text-color-one);
-}
-nav li{
-  list-style-type: none;
-  padding: 1em;
-  color: var(--text-color-two);
-  margin-left: .5em;
-  margin-right: .5em;
-  list-style: none;
-}
-#top-header{
-  display: flex;
-  flex-direction: row;
-  background-color: var(--secondary-color);
-  padding: 10px;
-  border: 2px solid var(--text-color-one);
-}
-.siteName{
-  text-align: left;
-  font-size: 30px;
-  flex-grow: 1;
-  padding: 10px;
-  list-style: none;
-}
-#tools{
-  text-align: right;
-  padding: 10px;
-  list-style: none;
-}
-#wrapper{
-  background-color: var(--primary-color);
-}
-main{
-  margin: 0 auto;
-  width: 90%;
-  height: auto;
-}
-h1{
-  text-align: center;
-}
-.copyright{
-  text-align: left;
-  color: var(--text-color-two);
-  padding: 10px;
-}
 
-}
+/* CSS FOR SMALLER SCREENS */
 
+
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
 /******************************/
 /* this is for the smaller screens */
 /******************************/
@@ -85,17 +23,22 @@ h1{
   box-sizing: border-box;
 }
 html{
-  background-image: url(../images/site/checkerboard.jpg);
+  background-color: var(--secondary-color);
 }
 body{
   margin: 0 auto;
 }
-
+/*this wrapps the whole document*/
+#wrapper{
+  background-color: var(--secondary-color);
+  }
+/*-------------------------------------------------*/
 /* css for the header */
+/*-------------------------------------------------*/
 #top-header{
   display: flex;
   flex-direction: row;
-  background-color: var(--secondary-color);
+  background-color: var(--third-color);
   padding: 10px;
   border: 2px solid var(--text-color-one);
 }
@@ -108,7 +51,7 @@ body{
 }
 .siteName a{
   text-decoration: none;
-  color: var(--text-color-one);
+  color: var(--text-color-two);
 }
 #tools{
   text-align: right;
@@ -118,17 +61,17 @@ body{
 }
 #tools a{
   text-decoration: none;
-  color: var(--text-color-one);
+  color: var(--text-color-two);
 }
-
+/*-------------------------------------------------*/
 /* css for the navigation bar */
+/*-------------------------------------------------*/
 nav{
   background-color: var(--secondary-color);
   margin: 0 auto;
 }
 ul{
   list-style-type: none;
-
 }
 nav ul{
 display: flex;
@@ -136,7 +79,7 @@ flex-direction: row;
 border: 1px solid var(--text-color-one);
 margin: 0 auto;
 padding: 0;
-background-color: var(--text-color-one);
+background-color: var(--primary-color);
 width: 100%;
 }
 nav li{
@@ -147,52 +90,75 @@ padding: 1.5em .5em;
 color: var(--text-color-two);
 list-style: none;
 }
-
+/*-------------------------------------------------*/
 /* css for the body of the page */
-#special{
-  display: block;
-  text-align: left;
-  padding-right: 2em;
-  background-color: rgba(204, 198, 198, 0.8);
-  z-index: 1;
-}
-#main-title-box{
+/*-------------------------------------------------*/
+.special{
+  position:absolute;
+  top: 270px;
+  left: 5%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  text-align: left;
+  padding-right: .5em;
+  background-color: rgba(255, 255, 255, 0.852);
+  border: 1px solid var(--text-color-one);
+  z-index: 2;
+  width: 150px;
+  height: auto;
+}
+.special h4{
+  color: var(--primary-color);
+  flex-grow: 2;
+}
+.special p{
+  color: var(--primary-color);
+  font-size: 15px;
+  padding-left: 5px;
+  margin: 0;
+  flex-grow: 2;
+}
+.special img{
+  width: 70%;
+  height: auto;
+}
+/*-------------------------------------------------*/
+/* main title section */
+/*-------------------------------------------------*/
+#main-title-box{
   background-color: var(--secondary-color);
   padding: 10px;
-  border: 2px solid var(--text-color-one);
   width: 100%;
 }
-#main-title-box picture{
-  width: 100px;
-  height: 100px;
-  padding: 10px;
-  z-index: 2;
+#main-title-box picture img{
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  z-index: 1;
 }
-#wrapper{
-background-color: var(--secondary-color);
-border: 5px solid var(--primary-color);
+/*-------------------------------------------------*/
+/* reviews section */
+/*-------------------------------------------------*/
+.reviews h2{
+  padding: 10px 0px 0px 5px;
 }
-#reviews h2{
-  padding: 10px 0px 0px 10px;
-}
-#reviews li{
+.reviews li{
   list-style-type: disc;
   font-size: 13px;
   padding: 10px 0px;
 }
-#reviews ul{
+.reviews ul{
   margin: 0;
   padding:  0px 30px;
 }
-
+/*-------------------------------------------------*/
 /* delorean upgrade section */
-#upgrade-items{
-  background-color: gray;
-}
+/*-------------------------------------------------*/
 #upgrade-items h2{
-  padding: 10px 0px 0px 0px;
+  padding: 10px 0px 0px 5px; 
+  margin: 0;
 }
 #cards{
   margin: 0;
@@ -206,13 +172,13 @@ border: 5px solid var(--primary-color);
   padding: 10px;
   margin: 5px;
   border: 1px solid var(--text-color-one);
-  display: grid;
-  grid-template-rows: 1fr 1fr;
+  width: auto;
+  height: 100px;
 }
 .card-items img{
   grid-row: 1;
   padding: 5px;
-  background-color: aliceblue;
+  background-color:var(--primary-color);
   display: block;
   margin: 0 auto;
 }
@@ -220,4 +186,225 @@ border: 5px solid var(--primary-color);
   grid-row: 2;
   text-align: center;
 }
+.car-tags{
+  text-align: center;
+  padding: 0px 0px 25px 0px;
+}
+/*-------------------------------------------------*/
+/* footer */
+/*-------------------------------------------------*/
+.copyright{
+  text-align: left;
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+}
+
+
+
+/*-------------------------------------------------*/
+/*this is css styles for the larger screens*/
+/*-------------------------------------------------*/
+@media screen and (min-width: 650px) {
+
+  html{
+    background-image: url(../images/site/checkerboard.jpg);
+  }
+  body{
+    margin: 0 auto;
+  }
+  /*this wrapps the whole document*/
+  #wrapper{
+    background-color: var(--secondary-color);
+    width: 75%;
+    margin: 0 auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    border: 5px solid var(--primary-color);
+    }
+  /*-------------------------------------------------*/
+  /* css for the header */
+  /*-------------------------------------------------*/
+  #top-header{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--third-color);
+    padding: 10px;
+    border: 2px solid var(--text-color-one);
+  }
+  .siteName{
+    text-align: left;
+    font-size: 30px;
+    flex-grow: 1;
+    padding: 20px 0px;
+    list-style: none;
+  }
+  .siteName a{
+    text-decoration: none;
+    font-size: 56px;
+    color: var(--text-color-two);
+  }
+  #tools{
+    text-align: right;
+    padding: 10px 0px;
+    list-style: none;
+    font-weight: 200;
+  }
+  #tools a{
+    text-decoration: none;
+    color: var(--text-color-two);
+    font-size: 26px;
+  }
+  /*-------------------------------------------------*/
+  /* css for the navigation bar */
+  /*-------------------------------------------------*/
+  nav{
+    background-color: var(--secondary-color);
+    margin: 0 auto;
+  }
+  ul{
+    list-style-type: none;
+  }
+  nav ul{
+  display: flex;
+  flex-direction: row;
+  border: 1px solid var(--text-color-one);
+  margin: 0 auto;
+  padding: 0;
+  background-color: var(--primary-color);
+  width: 100%;
+  }
+  nav li{
+  margin: 0 auto;
+  justify-content: center;
+  list-style-type: none;
+  padding: 1.5em .5em;
+  color: var(--text-color-two);
+  list-style: none;
+  }
+  /*-------------------------------------------------*/
+  /* css for the body of the page */
+  /*-------------------------------------------------*/
+  .special{
+    top: 60px;
+    left: 8%;
+    width: 33%;
+    }
+
+  .special h4{
+    color: var(--primary-color);
+    margin: 0;
+    font-size: 32px;
+    margin-left: 35px;
+    margin-top: 5px;
+    font-weight: bolder;
+  }
+  .special p{
+    color: var(--primary-color);
+    font-size: 28px;
+    padding-left: 35px;
+    padding-bottom: 5px;
+    font-weight: 300;
+  }
+  .special img{
+    width: 70%;
+    height: auto;
+    margin: 0 auto;
+    padding-bottom: 10px;
+  }
+  /*-------------------------------------------------*/
+  /* main title section */
+  /*-------------------------------------------------*/
+  #main-title-box{
+    position: relative;
+    background-color: var(--secondary-color);
+    padding: 10px;
+    width: 100%;
+  }
+  #main-title-box picture img{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    z-index: 1;
+  }
+  /*-------------------------------------------------*/
+  /* reviews section */
+  /*-------------------------------------------------*/
+  .info{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 0 auto;
+    padding: 10px;
+  }
+  .info .reviews{
+    grid-column: 2;
+    grid-row: 1;
+  }
+  #upgrade-items{
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .reviews h2{
+    padding: 10px 0px 0px 5px;
+  }
+  .reviews li{
+    list-style-type: disc;
+    font-size: 13px;
+    padding: 10px 0px;
+  }
+  .reviews ul{
+    margin: 0;
+    padding:  0px 30px;
+  }
+  /*-------------------------------------------------*/
+  /* delorean upgrade section */
+  /*-------------------------------------------------*/
+  #upgrade-items h2{
+    padding: 30px 0px 0px 5px; 
+    margin: 0;
+  }
+  #cards{
+    margin: 0;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .card-items{
+    background-color: var(--primary-color);
+    border: 1px solid var(--text-color-one);
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid var(--text-color-one);
+    width: auto;
+    height: 100px;
+  }
+  .card-items img{
+    grid-row: 1;
+    padding: 5px;
+    background-color:var(--primary-color);
+    display: block;
+    margin: 0 auto;
+  }
+  .card-items a{
+    grid-row: 2;
+    text-align: center;
+  }
+  .car-tags{
+    text-align: center;
+    padding: 0px 0px 25px 0px;
+  }
+  /*-------------------------------------------------*/
+  /* footer */
+  /*-------------------------------------------------*/
+  .copyright{
+    text-align: left;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+  }
+}
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/
 
