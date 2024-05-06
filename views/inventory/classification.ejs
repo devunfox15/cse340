@@ -1,0 +1,13 @@
+<!-- The Content Heading -->
+ <% if (title) { %> <!--does the title exist? -->
+    <h1><%= title %></h1> <!-- if exists it is displayed in an h1 element-->
+    <% } else {
+      res.redirect('/')
+    } %> <!--Other wise it is redirected theses change can
+    actually help our apps SEO rating go up --->
+
+<!---      A Message Block                 --->
+<%# messages() %> <!--- messages function is blocked out by the # in ejs --->
+
+<!-- The Inventory Items Display -->
+<%- grid %>
