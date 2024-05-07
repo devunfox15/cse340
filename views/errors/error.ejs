@@ -1,0 +1,11 @@
+<!-- The Content Heading -->
+<% if (title) { %> <!--does the title exist? -->
+    <h1><%= title %></h1> <!-- if exists it is displayed in an h1 element-->
+    <% } else {
+      res.redirect('/')
+    } %> <!--Other wise it is redirected theses change can
+    actually help our apps SEO rating go up --->
+
+ <p><%= message %></p>
+ <p><a href="/">Click Here To Return Home</a></p>
+
