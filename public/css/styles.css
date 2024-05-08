@@ -32,6 +32,9 @@ body{
 #wrapper{
   background-color: var(--secondary-color);
   }
+  #wrapper h1{
+    text-align: center;
+  }
 /*-------------------------------------------------*/
 /* css for the header */
 /*-------------------------------------------------*/
@@ -203,28 +206,78 @@ nav li a:hover{
 /* Styles for grid ul */
 #inv-display{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  margin: 0 auto;
+  grid-template-columns: 1fr;
+  grid-template-rows:auto;
   padding: 10px;
 }
 
 #inv-display ul{
   display: block;
   margin: 0 auto;
+  margin-top: 10px;
 }
+
 
 /* Styles for grid li */
 #inv-display li {
   /* Add styles for the grid li */
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  border: 10px solid var(--primary-color);
   padding: 10px;
-  border: 1px solid var(--text-color-one);
-  background-color: var(--primary-color);
-  width: min-content;
+  width: 300px;
+  height: max-content;
+  margin: 1em auto;
+  border-radius: 10%;
+  box-shadow: 8px 6px 4px rgba(0,0,0,0.1);
+}
+#inv-display li img{
+  display: block;
+  border-radius: 10%;
+  margin-top: 30%;
+  width: max-content;
+}
+.namePrice{
+  text-align: center;
 }
 
+.namePrice hr{
+  width: 60%;
+  height: 1px;
+}
 
+.namePrice a{
+text-decoration: none;
+color: var(--primary-color);
+font-weight: 900;
+text-align: center;
+}
+.error-header{
+  text-align: center;
+  padding: 20px;
+}
+.error-header p{
+  font-size: 14pt;
+}
+.error-header p a{
+  text-decoration: none;
+  color: var(--primary-color);
+  padding: 10px;
+}
+.error-header p a:hover{
+  text-decoration: underline;
+}
+
+.error-image{
+  display: block;
+  margin: 0 auto;
+  width: 70%;
+  height: auto;
+  border-radius: 10%;
+}
 
 /*-------------------------------------------------*/
 /* footer */
@@ -441,7 +494,30 @@ nav li a:hover{
     color: var(--primary-color);
     background-color: var(--secondary-color);
   }
-}
-/*-------------------------------------------------*/
-/*-------------------------------------------------*/
 
+  #inv-display {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  
+  }
+   #inv-display li {
+    padding: 10px;
+    height: 90%;
+    box-shadow: 8px 6px 0px rgba(0, 0, 0, 0.1);
+}
+
+  #inv-display li {
+    width: 225px; /* Width set to auto to allow flexibility in the grid layout */
+  }
+
+  #inv-display li img {
+    margin-top: 10%; /* Reduced top margin for better alignment */
+    width: 100%; /* Full width within the container */
+  }
+
+  .error-image {
+    width: 50%; /* Reduced width for large screens to avoid overly large images */
+  }
+}
+
+/*-------------------------------------------------*/
+/*-------------------------------------------------*/

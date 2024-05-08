@@ -1,11 +1,13 @@
 <!-- The Content Heading -->
-<% if (title) { %> <!--does the title exist? -->
-    <h1><%= title %></h1> <!-- if exists it is displayed in an h1 element-->
-    <% } else {
-      res.redirect('/')
-    } %> <!--Other wise it is redirected theses change can
-    actually help our apps SEO rating go up --->
+<% if (title) { %> <!-- Does the title exist? -->
+  <div class="error-header">
+  <img class="error-image" src="/images/site/404-error.webp" alt="404 error"> <!-- Image is always displayed -->
+  <h1><%= title %> ERROR</h1> <!-- If exists, it is displayed in an h1 element -->
+  <p><%= message %></p>
+  <p><a href="/">Click Here To Return Home</a></p>
+  </div>
+<% } else { %> 
+  <% res.redirect('/') %> <!-- Otherwise, redirect -->
+<% } %> 
 
- <p><%= message %></p>
- <p><a href="/">Click Here To Return Home</a></p>
 
