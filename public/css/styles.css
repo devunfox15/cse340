@@ -279,6 +279,33 @@ text-align: center;
   border-radius: 10%;
 }
 
+#single-vehicle{
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 20px;
+}
+
+#single-vehicle img{
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  height: auto;
+  border: 5px solid var(--primary-color);
+}
+
+#single-vehicle p{
+  text-align: left;
+  padding-left: 20px;
+  font-size: large;
+}
+
+#single-vehicle p:nth-child(even){
+  background-color: gainsboro;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
 /*-------------------------------------------------*/
 /* footer */
 /*-------------------------------------------------*/
@@ -356,7 +383,6 @@ text-align: center;
   nav ul a{
   display: flex;
   flex-direction: row;
-  border: 1px solid var(--text-color-one);
   margin: 0 auto;
   padding: 0;
   background-color: var(--primary-color);
@@ -517,6 +543,49 @@ text-align: center;
   .error-image {
     width: 50%; /* Reduced width for large screens to avoid overly large images */
   }
+
+
+  #single-vehicle{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    background-color: var(--primary-color);
+    list-style: none;
+    padding: 20px;
+  }
+  
+  #single-vehicle img{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 25px;
+    width: 75%;
+    height: min-content;
+    border: 5px solid var(--primary-color);
+    border: 3px solid black;
+  }
+  
+  #single-vehicle p{
+    text-align: left;
+    padding-left: 20px;
+    font-size: large;
+  }
+  
+  #single-vehicle p:nth-child(even){
+    background-color: gainsboro;
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+  #details{
+    background-color: white;
+    padding: 10px;
+    border: 3px solid black;
+  }
+  
+
+
 }
 
 /*-------------------------------------------------*/

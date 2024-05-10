@@ -57,7 +57,28 @@ Util.buildClassificationGrid = async function(data){
   }
   return grid
 }
-
+/* ****************************************
+ * Format vehicle detail for HTML display
+ * **************************************** */
+Util.buildInvGrid = async function(data){ 
+let detail  // Initialize the detail list at the start
+    detail = '<div id="single-vehicle">';
+    data.forEach(vehicle => {
+      detail += '<img src="' + vehicle.inv_image+'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model +'"/>'
+      detail += '<div id="details">'
+      detail += '<h2>'+ vehicle.inv_make + ' ' + vehicle.inv_model + ' Details'+'</h2>'
+      detail += '<p>' + vehicle.inv_description + '</p>'
+      detail += '<p>' + 'Price: $' + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</p>'
+      detail += '<p>' + 'Color: ' + vehicle.inv_color + '</p>'
+      detail += '<p>' + 'Make: ' + vehicle.inv_make + '</p>'
+      detail +='<p>'+ 'Model: ' + vehicle.inv_model + '</p>'
+      detail += '<p>'+ 'Year: ' +  vehicle.inv_year + '</p>'
+      detail += '<p>' + 'Total Mileage: ' + new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + '</p>'
+    detail += '</div>'
+    detail += '</div>'
+    })
+  return detail
+}
 
 /* ****************************************
  * Middleware For Handling Errors
