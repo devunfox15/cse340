@@ -64,7 +64,7 @@ Util.buildInvGrid = async function(data){
 let detail  // Initialize the detail list at the start
     detail = '<div id="single-vehicle">';
     data.forEach(vehicle => {
-      detail += '<img src="' + vehicle.inv_image+'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model +'"/>'
+      detail += '<img src="' + vehicle.inv_image+'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model +'">'
       detail += '<div id="details">'
       detail += '<h2>'+ vehicle.inv_make + ' ' + vehicle.inv_model + ' Details'+'</h2>'
       detail += '<p>' + vehicle.inv_description + '</p>'
