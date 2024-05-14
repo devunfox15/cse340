@@ -1,0 +1,22 @@
+<% if (title) { %> 
+    <h1><%= title %></h1>
+    <% } else {
+      res.redirect('/')
+    } %> 
+<%# messages() %> <!--- messages function is blocked out by the # in ejs -->
+<!-- The Items Display -->
+<div class="account-form">
+<form action="/account/register" method="post">
+  <label for="firstName">First Name</label>
+  <input type="text" name="account_firstname" id="name" required>
+  <label for="lastName">Last Name</label>
+  <input type="text" name="account_lastname" id="last_name" required>
+  <label for="email">Email</label>
+  <input type="email" name="account_email" id="email" required>
+  <label for="password">Password</label>
+  <input type="password" name="account_password" id="password" required>
+  <p> The password must be at least 12 characters in length, contain 1 capital letter, 1 number, and 1 special character.</p>
+  
+  <button type="submit">Register</button>
+</form>
+</div>

@@ -34,6 +34,7 @@ body{
   }
   #wrapper h1{
     text-align: center;
+    margin-left: 0px;
   }
 /*-------------------------------------------------*/
 /* css for the header */
@@ -317,6 +318,79 @@ text-align: center;
 
 
 
+/*------------------------------------------------
+Week 4 css add ons
+- ul class notice for flash messages
+
+
+--------------------------------------------------*/
+.account-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 20px;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.account-form label {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.account-form input[type="text"],
+.account-form input[type="email"],
+.account-form input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  width: 80%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.account-form button {
+  
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  width: 80%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.account-form button:hover {
+  background-color: #218838;
+}
+
+.account-form p {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.account-form a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.account-form a:hover {
+  text-decoration: underline;
+}
+
+
+
+
 /*-------------------------------------------------*/
 /*this is css styles for the larger screens*/
 /*-------------------------------------------------*/
@@ -337,6 +411,7 @@ text-align: center;
     margin-bottom: 2em;
     border: 5px solid var(--primary-color);
     }
+
   /*-------------------------------------------------*/
   /* css for the header */
   /*-------------------------------------------------*/
@@ -584,6 +659,80 @@ text-align: center;
     border: 3px solid black;
   }
   
+
+/*------------------------------------------------
+Week 4 css add ons
+- ul class notice for flash messages
+
+
+--------------------------------------------------*/
+.account-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 20px;
+  border: 1px solid var(--primary-color);
+  border-radius: 4px;
+  margin-bottom: 20px;
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.account-form label {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.account-form input[type="text"],
+.account-form input[type="email"],
+.account-form input[type="password"] {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  width: 70%;
+  box-sizing: border-box;
+  margin: 0 auto;
+  margin-bottom: 10px;
+}
+
+.account-form button {
+  
+  padding: 10px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  width: 50%;
+  margin: auto;
+  margin-top: 30px;
+}
+
+.account-form button:hover {
+  background-color: #218838;
+}
+
+.account-form p {
+  margin-top: 15px;
+  text-align: center;
+  padding: 20px;
+}
+
+.account-form a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.account-form a:hover {
+  text-decoration: underline;
+}
+
+
+
 
 
 }
