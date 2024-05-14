@@ -329,8 +329,6 @@ Week 4 css add ons
   flex-direction: column;
   align-items: stretch;
   padding: 20px;
-  border: 1px solid var(--primary-color);
-  border-radius: 4px;
   margin-bottom: 20px;
   width: 80%;
   margin: 0 auto;
@@ -353,6 +351,11 @@ Week 4 css add ons
   box-sizing: border-box;
   margin: 0 auto;
   margin-bottom: 10px;
+  .account-form fieldset{
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 20px;
+  }
 }
 
 .account-form button {
@@ -388,7 +391,16 @@ Week 4 css add ons
   text-decoration: underline;
 }
 
-
+input:required:invalid, input:focus:invalid {
+  border: 2px solid red;
+ }
+  input:required:valid {
+ border: 2px solid rgb(0, 224, 0);
+  }
+  ul.notice li{
+    list-style: none;
+    text-align: center;
+  }
 
 
 /*-------------------------------------------------*/
@@ -671,8 +683,6 @@ Week 4 css add ons
   flex-direction: column;
   align-items: stretch;
   padding: 20px;
-  border: 1px solid var(--primary-color);
-  border-radius: 4px;
   margin-bottom: 20px;
   width: 70%;
   margin: 0 auto;
@@ -719,7 +729,6 @@ Week 4 css add ons
 .account-form p {
   margin-top: 15px;
   text-align: center;
-  padding: 20px;
 }
 
 .account-form a {
