@@ -1,0 +1,25 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+<% } else { %>
+<script>
+    res.redirect('/'); 
+</script>
+<% } %>
+<% messages() %>
+<% if (errors) { %>
+    <ul class="notice">
+    <% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+    <% }) %>
+</ul>
+<% } %>
+
+<div id="add-classification">
+    <!-- Cars classes do not have numbers or special characters so i used only letters howver you could use numbers with this method "^[a-zA-Z0-9]+$" I also decide to use sticky for this so they can quickly upodate a car if it has a character "-->
+<form action="/inv/add-classification" method="POST" id="classForm">
+    <label for="classificationName">Classification Name</label>
+    <input type="text" id="classificationName" name="classification_name" required pattern="^[a-zA-Z]+$" placeholder="Enter Classification" value="<%= locals.classification_name %>">
+    <small>Cannot contain a space, number, or special character.</small> 
+    <button type="submit">Add Classification</button>
+</form>
+</div>

@@ -1,55 +1,55 @@
 <body>
-  <% if (title) { %>
-      <h1><%= title %></h1>
-  <% } else { %>
-      <script>
-          res.redirect('/');
-      </script>
-  <% } %>
-  <%- messages() %>
-  <% if (errors) { %>
+<% if (title) { %>
+    <h1><%= title %></h1>
+<% } else { %>
+    <script>
+        res.redirect('/');
+    </script>
+<% } %>
+<%- messages() %>
+<% if (errors) { %>
     <ul class="notice">
-   <% errors.array().forEach(error => { %>
-     <li><%= error.msg %></li>
-  <%  }) %>
-   </ul>
-  <% } %>
-  <div class="account-form">
-      <p>All fields are required.</p>
-      <form id="registerForm" action="/account/register" method="post">
-          <fieldset>
-              <label for="firstName">First Name:</label>
-              <input type="text" name="account_firstname" id="firstName" size="10" required value="<%= locals.account_firstname %>">
-              
-              <label for="lastName">Last Name:</label>
-              <input type="text" name="account_lastname" id="lastName" required value="<%= locals.account_lastname %>">
-              
-              <label for="email">Email:</label>
-              <input type="email" name="account_email" required placeholder="Enter a valid email address" id="email" required value="<%= locals.account_email %>">
-              
-              <label for="pword">Password:</label>
-              <input type="password" name="account_password" id="pword" required 
-                     pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" 
-                     autocomplete="new-password">
-              <button type="button" id="pswBtn">Show Password</button>
-              <div><i>Passwords must be at least 12 characters in length, contain 1 capital letter, 1 number, and 1 special character.</i></div>
-              <button type="submit">Register</button>
-          </fieldset>
-      </form>
-  </div>
+<% errors.array().forEach(error => { %>
+    <li><%= error.msg %></li>
+<%  }) %>
+</ul>
+<% } %>
+<div class="account-form">
+    <p>All fields are required.</p>
+    <form id="registerForm" action="/account/register" method="post">
+        <fieldset>
+            <label for="firstName">First Name:</label>
+            <input type="text" name="account_firstname" id="firstName" size="10" required value="<%= locals.account_firstname %>">
+            
+            <label for="lastName">Last Name:</label>
+            <input type="text" name="account_lastname" id="lastName" required value="<%= locals.account_lastname %>">
+            
+            <label for="email">Email:</label>
+            <input type="email" name="account_email" required placeholder="Enter a valid email address" id="email" required value="<%= locals.account_email %>">
+            
+            <label for="pword">Password:</label>
+            <input type="password" name="account_password" id="pword" required 
+                    pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$" 
+                    autocomplete="new-password">
+            <button type="button" id="pswBtn">Show Password</button>
+            <div><i>Passwords must be at least 12 characters in length, contain 1 capital letter, 1 number, and 1 special character.</i></div>
+            <button type="submit">Register</button>
+        </fieldset>
+    </form>
+</div>
 
-  <script>
-      const pswdBtn = document.querySelector('#pswBtn');
-      pswdBtn.addEventListener('click', function() {
-          const pswdInput = document.querySelector('#pword');
-          const type = pswdInput.getAttribute('type');
-          if (type === 'password') {
-              pswdInput.setAttribute('type', 'text');
-              pswdBtn.innerHTML = 'Hide Password';
-          } else {
-              pswdInput.setAttribute('type', 'password');
-              pswdBtn.innerHTML = 'Show Password';
-          }
-      });
-  </script>
+<script>
+    const pswdBtn = document.querySelector('#pswBtn');
+    pswdBtn.addEventListener('click', function() {
+        const pswdInput = document.querySelector('#pword');
+        const type = pswdInput.getAttribute('type');
+        if (type === 'password') {
+            pswdInput.setAttribute('type', 'text');
+            pswdBtn.innerHTML = 'Hide Password';
+        } else {
+            pswdInput.setAttribute('type', 'password');
+            pswdBtn.innerHTML = 'Show Password';
+        }
+    });
+</script>
 </body>

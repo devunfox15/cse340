@@ -38,4 +38,127 @@ invCont.buildByInventoryId = async function(req, res) {
   });
 };
 
+/* ***************************
+ *  Build inventory management view
+ * ************************** */
+invCont.buildInvManagementView = async function (req, res, next) {
+  let nav = await utilities.getNav();
+  // res.flash("info", "Classification Added Successfully");
+  res.render("inventory/management", {
+    title: "Inventory Management",
+    nav,
+    errors: null,
+  });
+};
+
+/* ***************************
+ *   Add classification view
+ * ************************** */
+invCont.addClassificationView = async function (req, res, next) {
+  let nav = await utilities.getNav();
+  res.render("./inventory/add-classification", {
+    title: "Add New Classification",
+    nav,
+    errors: null,
+  });
+};
+
+/* ***************************
+ *  Add classification 
+ * ************************** */
+invCont.addClassification = async function (req, res) {
+  const { classification_name } = req.body;
+  const regResults = await invModel.addClassification(classification_name);
+
+  if (regResults) {
+    let nav = await utilities.getNav();
+    req.flash(
+      "notice",
+      "New classification: " + classification_name + " added."
+    );
+    res.status(201).render("inventory/management", {
+    title: "Inventory Management",
+    nav,
+    errors: null,
+    });
+  } else { 
+    let nav = await utilities.getNav();
+    req.flash("notice","Sorry, there was an error in adding a classification.");
+    res.status(501).render("inventory/add-classification", {
+    title: "Add New Classification",
+    nav,
+    errors: null,
+    });
+  }
+  
+}
+
+/* ***************************
+ *  Add inventory view
+ * ************************** */
+invCont.addInventoryView = async function (req, res, next) {
+  const classificationList = await utilities.buildClassificationList();
+  const nav = await utilities.getNav();
+  res.render("./inventory/add-inventory", {
+    title: "Add New Inventory Item",
+    nav,
+    classificationList,
+    errors: null,
+  });
+};
+/* ***************************
+ *  Add inventory
+ * ************************** */
+invCont.addInventory = async function (req, res, next) {
+  const {
+    inv_make,
+    inv_model,
+    inv_year,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_price,
+    inv_miles,
+    inv_color,
+    classification_id,
+  } = req.body;
+
+  const regResults = await invModel.addInventory(
+    inv_make,
+    inv_model,
+    inv_year,
+    inv_description,
+    inv_image,
+    inv_thumbnail,
+    inv_price,
+    inv_miles,
+    inv_color,
+    classification_id
+  );
+
+  if (regResults) {
+    const classificationList = await utilities.buildClassificationList();
+    let nav = await utilities.getNav();
+    req.flash(
+      "notice",
+      "A New inventory item called " + inv_make + " " + inv_model + " added"
+    );
+    res.status(201).render("inventory/management", {
+      title: "Inventory Management",
+      nav,
+      classificationList,
+      errors: null,
+    });
+  } else { 
+    let nav = await utilities.getNav();
+    req.flash("notice","Sorry, there was an error in adding an inventory item.");
+    res.status(501).render("inventory/add-inventory", {
+      title: "Add New Inventory Item",
+      nav,
+      errors: null,
+    });
+  }
+};
+
+
 module.exports = invCont
