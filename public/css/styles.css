@@ -491,6 +491,59 @@ form#classForm textarea
   text-decoration: none;
   color: var(--secondary-color);
 }
+select#classificationList{
+  height: 50px;
+}
+#inventoryDisplay{
+  display: grid;
+}
+#inventoryDisplay a{
+  background-color: var(--secondary-color);
+}
+#inventoryDisplay tbody{
+  border: 1px solid var(--primary-color);
+}
+#inventoryDisplay thead{
+  grid-column: 1;
+  grid-row: 1/3;
+  background-color: var(--primary-color);
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+#inventoryDisplay td{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 25%;
+  text-align: center;
+  font-size: 10pt;
+}
+#inventoryDisplay td:nth-child(2){
+  border: solid 5px var(--primary-color);
+}
+#inventoryDisplay td:nth-child(3){
+  border: solid 5px var(--primary-color);
+}
+
+#inventoryDisplay th {
+  padding-left: 15px;
+  text-align: left;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+}
+#inventoryDisplay td:nth-child(2) a {
+  color: green;
+  text-decoration: none;
+}
+#inventoryDisplay td:nth-child(3) a{
+  color: red;
+  text-decoration: none;
+}
+#inventoryDisplay td:nth-child(2):hover {
+  cursor: pointer;
+}
+#inventoryDisplay td:nth-child(3):hover{
+  cursor: pointer;
+}
 
 
 /*-------------------------------------------------*/
