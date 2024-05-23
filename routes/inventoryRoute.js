@@ -66,13 +66,13 @@ router.post(
  *  classification controllers delete inventory
  * ************************** */
 
-router.get("/delete/:inventoryId",
-utilities.handleErrors(invController.deleteView));
+router.get("/delete/:inventory_id",
+utilities.handleErrors(invController.deleteInvItemView));
 
 // process the add inventory data
 router.post( 
-    "/delete", 
-    utilities.handleErrors(invController.deleteItem))
+    "/deleted", 
+    utilities.handleErrors(invController.deleteInventory))
 
 
 /* ***************************
