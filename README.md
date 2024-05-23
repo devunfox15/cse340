@@ -49,3 +49,26 @@ When you installed Git and cloned the remote repository in week 1, you should ha
 
 ## Team Activity 2
 - 1. 
+
+## passwords and usernames for sample database
+Client
+```
+account_firstname: Basic
+account_lastname: Client
+account_email: basic@340.edu
+account_password: I@mABas1cCl!3nt
+```
+Employee
+```
+account_firstname: Happy
+account_lastname: Employee
+account_email: happy@340.edu
+account_password: I@mAnEmpl0y33
+```
+Manager
+```
+account_firstname: Manager
+account_lastname: User
+account_email: manager@340.edu
+account_password: I@mAnAdm!n1strat0r
+```

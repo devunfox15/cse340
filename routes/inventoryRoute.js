@@ -5,6 +5,10 @@ const router = new express.Router()
 const utilities = require("../utilities/")
 const invController = require("../controllers/invController")
 
+
+
+// inv routes via /site-name function too
+
 /* ***************************
  * a route to inventory management controller
  * ************************** */
@@ -40,6 +44,38 @@ router.post(
     utilities.handleErrors(invController.addInventory)  
 );
 
+/* ***************************
+ *  classification controllers edit inventory
+ * ************************** */
+
+router.get("/edit/:inventory_id",
+utilities.handleErrors(invController.editInvItemView));
+
+// process the add inventory data
+router.post( 
+    "/update/",
+    regValidate.inventoryRules(),
+    regValidate.checkUpdateData, 
+    utilities.handleErrors(invController.updateInventory))
+
+
+
+/* ***************************
+ *  classification controllers delete inventory
+ * ************************** */
+
+router.get("/delete/:inventoryId",
+utilities.handleErrors(invController.deleteView));
+
+// process the add inventory data
+router.post( 
+    "/delete", 
+    utilities.handleErrors(invController.deleteItem))
+
+
+/* ***************************
+ *  inv routes via /inv
+ * ************************** */
 // this is the route to build the inventory by classification view
 router.get("/type/:classificationId", utilities.handleErrors(invController.buildByClassificationId));
 router.get("/detail/:inventoryId", utilities.handleErrors(invController.buildByInventoryId));

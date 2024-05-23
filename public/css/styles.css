@@ -500,9 +500,6 @@ select#classificationList{
 #inventoryDisplay a{
   background-color: var(--secondary-color);
 }
-#inventoryDisplay tbody{
-  border: 1px solid var(--primary-color);
-}
 #inventoryDisplay thead{
   grid-column: 1;
   grid-row: 1/3;
@@ -517,18 +514,12 @@ select#classificationList{
   text-align: center;
   font-size: 10pt;
 }
-#inventoryDisplay td:nth-child(2){
-  border: solid 5px var(--primary-color);
-}
-#inventoryDisplay td:nth-child(3){
-  border: solid 5px var(--primary-color);
-}
-
 #inventoryDisplay th {
   padding-left: 15px;
   text-align: left;
   background-color: var(--primary-color);
   color: var(--secondary-color);
+  width: 100%;
 }
 #inventoryDisplay td:nth-child(2) a {
   color: green;
@@ -543,6 +534,17 @@ select#classificationList{
 }
 #inventoryDisplay td:nth-child(3):hover{
   cursor: pointer;
+}
+#inventoryDisplay tbody {
+  border-left: 1px solid var(--primary-color);
+  border-right: 1px solid var(--primary-color);
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+}
+#inventoryDisplay tbody tr {
+  display: flex;
+  border-bottom: var(--primary-color) 1px solid;
 }
 
 
@@ -934,7 +936,17 @@ width: 60%;
 margin: 0 auto;
 margin-top: 20px;
 }
+#inventoryDisplay td{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  width: 33%;
+  text-align: center;
+  font-size: 10pt;
+}
+
 }
 
 /*-------------------------------------------------*/
 /*-------------------------------------------------*/
+
+
