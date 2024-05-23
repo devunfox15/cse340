@@ -51,9 +51,11 @@ router.post(
 router.get("/edit/:inventory_id",
 utilities.handleErrors(invController.editInvItemView));
 
-// process the add inventory data
+/* ***************************
+    process the add inventory data
+ * ************************** */
 router.post( 
-    "/update/",
+    "/update",
     regValidate.inventoryRules(),
     regValidate.checkUpdateData, 
     utilities.handleErrors(invController.updateInventory))
