@@ -48,16 +48,17 @@ async function getAccountByEmail (account_email) {
   }
 }
 
-async function updateAccountById(accountId, updateData) {
+async function updateAccountById(account_id, account_firstname, account_lastname, account_email) {
   try {
     const sql = `
       UPDATE public.account
       SET account_firstname = $1, account_lastname = $2, account_email = $3
       WHERE account_id = $4
+      RETURNING *;
     `;
-    const values = [updateData.account_firstname, updateData.account_lastname, updateData.account_email, accountId];
+    const values = [account_firstname, account_lastname, account_email, account_id];
     const result = await pool.query(sql, values);
-    return result.rowCount > 0;
+    return result.rowCount > 0; // Ensure it returns a boolean indicating success
   } catch (error) {
     console.error(error);
     return false;

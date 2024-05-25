@@ -128,17 +128,19 @@ async function accountLogin(req, res) {
 }
 
 async function accountLogout(req, res) {
+  req.flash('notice', 'You have successfully logged out.');
+  res.clearCookie('sessionId');
+  res.clearCookie('jwt');
   req.session.destroy((err) => {
     if (err) {
       return res.redirect('/');
     }
-    res.clearCookie('sessionId');
-    res.clearCookie('jwt');
-    req.flash('notice', 'You have successfully logged out.');
     res.redirect('/');
   });
 }
-
+/* ****************************************
+ *  Update account view
+ * ************************************ */
 async function updateAccountView(req, res, next) {
   let nav = await utilities.getNav();
   const accountId = req.params.id;
@@ -152,13 +154,18 @@ async function updateAccountView(req, res, next) {
   });
 }
 
+/* ****************************************
+ *  Update account information
+ * ************************************ */
 async function updateAccount(req, res, next) {
   const { account_id, account_firstname, account_lastname, account_email } = req.body;
-  const updateResult = await accountModel.updateAccountById(account_id, {
+  
+  const updateResult = await accountModel.updateAccountById(
+    account_id,
     account_firstname,
     account_lastname,
     account_email
-  });
+  );
 
   if (updateResult) {
     req.flash("notice", "Account information updated successfully.");
@@ -168,6 +175,7 @@ async function updateAccount(req, res, next) {
 
   res.redirect(`/account/update/${account_id}`);
 }
+
 async function changePassword(req, res, next) {
   const { account_id, account_password } = req.body;
   const hashedPassword = await bcrypt.hash(account_password, 10);

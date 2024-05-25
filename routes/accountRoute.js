@@ -6,7 +6,9 @@ const utilities = require("../utilities/");
 const accountController = require("../controllers/accountController");
 const checkLogin = require("../middleware/checkLogin");
 
-
+/* ****************************************
+ *  account management view
+ * ************************************ */
 router.get("/", checkLogin, utilities.handleErrors(accountController.buildManagement));
 
 // Route to build the login view
@@ -18,14 +20,14 @@ router.get("/register", utilities.handleErrors(accountController.buildRegister))
 // Route to update account information
 router.get("/update/:id", checkLogin, utilities.handleErrors(accountController.updateAccountView));
 
+// Process the update account data
 router.post("/update", 
-Validate.updateAccountRules(), 
-checkLogin, 
-Validate.checkUpdateAccountData, 
-utilities.handleErrors(accountController.updateAccount)
+  Validate.updateAccountRules(), 
+  checkLogin, 
+  Validate.checkUpdateAccountData, 
+  utilities.handleErrors(accountController.updateAccount));
 
-);
-
+// Route to change password
 router.post("/change-password",
 Validate.changePasswordRules(),
 checkLogin, 

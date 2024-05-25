@@ -302,14 +302,14 @@ validate.checkUpdateData = async (req, res, next) => {
   next();
 };
 
-
+// Validation rules for account update
 validate.updateAccountRules = () => {
   return [
     check("account_firstname").isLength({ min: 1 }).withMessage("First name is required."),
     check("account_lastname").isLength({ min: 1 }).withMessage("Last name is required."),
     check("account_email").isEmail().withMessage("A valid email is required.")
       .custom(async (value, { req }) => {
-        const account = await accountController.getAccountByEmail(value);
+        const account = await accountModel.getAccountByEmail(value);
         if (account && account.account_id !== parseInt(req.body.account_id)) {
           throw new Error("Email already in use.");
         }
@@ -317,6 +317,7 @@ validate.updateAccountRules = () => {
       }),
   ];
 };
+
 
 // Validation rules for password change
 validate.changePasswordRules = () => {

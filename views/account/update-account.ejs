@@ -7,7 +7,7 @@
       <% }); %>
     </div>
   <% } %>
-  <% if (errors) { %>
+  <% if (errors && errors.length > 0) { %>
     <div class="errors">
       <% errors.forEach(function(error) { %>
         <p><%= error.msg %></p>
@@ -39,7 +39,6 @@
         <input type="submit" value="Update Account">
       </div>
     </form>
-  </section>
   
   <section>
     <h2>Change Password</h2>
