@@ -330,7 +330,7 @@ Week 4 css add ons
   align-items: stretch;
   padding: 20px;
   margin-bottom: 20px;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   margin-top: 20px;
 }
@@ -338,16 +338,18 @@ Week 4 css add ons
 .account-form label {
   margin-bottom: 10px;
   text-align: center;
+  display: flex;
 }
 
 .account-form input[type="text"],
 .account-form input[type="email"],
 .account-form input[type="password"] {
+  display: block;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 15px;
-  width: 80%;
+  width: 75%;
   box-sizing: border-box;
   margin: 0 auto;
   margin-bottom: 10px;
@@ -356,10 +358,13 @@ Week 4 css add ons
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 20px;
+  margin : 0 auto;
+  width: 75%;
 }
 
 .account-form button {
-  
+  display: block;
+  width: 75%;
   padding: 10px;
   background-color: #28a745;
   color: white;
@@ -368,7 +373,6 @@ Week 4 css add ons
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;
-  width: 80%;
   margin: auto;
   margin-top: 30px;
 }
@@ -547,6 +551,78 @@ select#classificationList{
   border-bottom: var(--primary-color) 1px solid;
 }
 
+
+/* week 5 css */
+
+.account-management{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.account-management h2,
+.account-management h3,
+.account-management p{
+  text-align: center;
+}
+.account-update{
+  display: block;
+  margin: 0 auto;
+  height: auto;
+  border-radius: 10%;
+}
+#account-update div{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.account-update div p{
+  width : 50%;
+}
+section.account-update form{
+  display: block;
+  margin: 0 auto;
+  
+}
+.account-update h2{
+  text-align: center;
+  
+}
+.account-update input[type="text"],
+.account-update input[type="email"],
+.account-update input[type="password"]{
+  display: block;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.account-update input[type="submit"] {
+
+  padding: 10px;
+  background-color: #175E28;
+  color: white;
+  font-weight: 900;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;  
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 30px;
+}
+.accountForm{
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+}
 
 /*-------------------------------------------------*/
 /*this is css styles for the larger screens*/
@@ -829,7 +905,7 @@ Week 4 css add ons
   align-items: stretch;
   padding: 20px;
   margin-bottom: 20px;
-  width: 70%;
+  width: 50%;
   margin: 0 auto;
   margin-top: 20px;
 }
@@ -837,23 +913,25 @@ Week 4 css add ons
 .account-form label {
   margin-bottom: 10px;
   text-align: center;
+  display: flex;
 }
 
 .account-form input[type="text"],
 .account-form input[type="email"],
 .account-form input[type="password"] {
+  display: block;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   margin-bottom: 15px;
-  width: 70%;
+  width: 75%;
   box-sizing: border-box;
   margin: 0 auto;
   margin-bottom: 10px;
 }
 
 .account-form button {
-  
+  display: block;
   padding: 10px;
   background-color: #28a745;
   color: white;
@@ -862,9 +940,9 @@ Week 4 css add ons
   cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s;
-  width: 50%;
   margin: auto;
   margin-top: 30px;
+  width: 75%;
 }
 
 .account-form button:hover {
@@ -942,6 +1020,28 @@ margin-top: 20px;
   width: 33%;
   text-align: center;
   font-size: 10pt;
+}
+/* week 5 css */
+
+.account-management{
+  display: block;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.account-management h2,
+.account-management h3,
+.account-management p{
+  text-align: center;
+}
+
+
+.accountForm{
+  display: block;
+  margin: 0 auto;
+  width: 60%;
 }
 
 }

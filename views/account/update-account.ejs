@@ -1,4 +1,4 @@
-<main>
+
   <h1><%= title %></h1>
   <% if (messages.length > 0) { %>
     <div class="messages">
@@ -15,9 +15,9 @@
     </div>
   <% } %>
   
-  <section>
+  <section class="account-update">
     <h2>Account Update</h2>
-    <form action="/account/update" method="post">
+    <form action="/account/update" method="post" class="accountForm">
       <input type="hidden" name="account_id" value="<%= user.account_id %>">
       
       <div>
@@ -39,10 +39,11 @@
         <input type="submit" value="Update Account">
       </div>
     </form>
+  </section>
   
-  <section>
+  <section  class="account-update">
     <h2>Change Password</h2>
-    <form action="/account/change-password" method="post">
+    <form action="/account/change-password" method="post" class="accountForm">
       <input type="hidden" name="account_id" value="<%= user.account_id %>">
       
       <div>
@@ -56,4 +57,3 @@
       </div>
     </form>
   </section>
-</main>
