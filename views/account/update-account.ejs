@@ -1,0 +1,60 @@
+<main>
+  <h1><%= title %></h1>
+  <% if (messages.length > 0) { %>
+    <div class="messages">
+      <% messages.forEach(function(message) { %>
+        <p><%= message %></p>
+      <% }); %>
+    </div>
+  <% } %>
+  <% if (errors) { %>
+    <div class="errors">
+      <% errors.forEach(function(error) { %>
+        <p><%= error.msg %></p>
+      <% }); %>
+    </div>
+  <% } %>
+  
+  <section>
+    <h2>Account Update</h2>
+    <form action="/account/update" method="post">
+      <input type="hidden" name="account_id" value="<%= user.account_id %>">
+      
+      <div>
+        <label for="account_firstname">First Name</label>
+        <input type="text" id="account_firstname" name="account_firstname" value="<%= user.account_firstname %>" required>
+      </div>
+      
+      <div>
+        <label for="account_lastname">Last Name</label>
+        <input type="text" id="account_lastname" name="account_lastname" value="<%= user.account_lastname %>" required>
+      </div>
+      
+      <div>
+        <label for="account_email">Email</label>
+        <input type="email" id="account_email" name="account_email" value="<%= user.account_email %>" required>
+      </div>
+      
+      <div>
+        <input type="submit" value="Update Account">
+      </div>
+    </form>
+  </section>
+  
+  <section>
+    <h2>Change Password</h2>
+    <form action="/account/change-password" method="post">
+      <input type="hidden" name="account_id" value="<%= user.account_id %>">
+      
+      <div>
+        <label for="account_password">New Password</label>
+        <input type="password" id="account_password" name="account_password" required>
+        <p>Password must be at least 8 characters long and contain at least one number, one uppercase letter, and one lowercase letter.</p>
+      </div>
+      
+      <div>
+        <input type="submit" value="Change Password">
+      </div>
+    </form>
+  </section>
+</main>

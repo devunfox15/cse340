@@ -4,17 +4,18 @@ const utilities = require("../utilities/");
 const accountModel = require("../models/account-model");
 const jwt = require("jsonwebtoken")
 require("dotenv").config()
+const { validationResult } = require("express-validator");
 
 /* ****************************************
 *  Deliver login view
 * *************************************** */
 async function buildLogin(req, res, next) {
   let nav = await utilities.getNav();
-  //res.flash("info", "Login successful!")
   res.render("account/login", {
     title: "Login",
     nav,
     errors: null,
+    notice: req.flash('notice')
   });
 }
 /* ****************************************
@@ -22,11 +23,13 @@ async function buildLogin(req, res, next) {
 * *************************************** */
 async function buildManagement(req, res, next) {
   let nav = await utilities.getNav();
-  //res.flash("info", "Login successful!")
+  const accountData = await accountModel.getAccountById(req.user.account_id);
   res.render("account/account-management", {
     title: "Account Management",
     nav,
+    user: accountData,
     errors: null,
+    messages: req.flash("notice"),
   });
 }
 
@@ -116,6 +119,7 @@ async function accountLogin(req, res) {
       } else {
        res.cookie("jwt", accessToken, { httpOnly: true, secure: true, maxAge: 3600 * 1000 })
       }
+    req.session.user = accountData;
     return res.redirect("/account/")
     }
   } catch (error) {
@@ -123,6 +127,65 @@ async function accountLogin(req, res) {
   }
 }
 
+async function accountLogout(req, res) {
+  req.session.destroy((err) => {
+    if (err) {
+      return res.redirect('/');
+    }
+    res.clearCookie('sessionId');
+    res.clearCookie('jwt');
+    req.flash('notice', 'You have successfully logged out.');
+    res.redirect('/');
+  });
+}
+
+async function updateAccountView(req, res, next) {
+  let nav = await utilities.getNav();
+  const accountId = req.params.id;
+  const accountData = await accountModel.getAccountById(accountId);
+  res.render("account/update-account", {
+    title: "Update Account Information",
+    nav,
+    user: accountData,
+    errors: null,
+    messages: req.flash('notice')
+  });
+}
+
+async function updateAccount(req, res, next) {
+  const { account_id, account_firstname, account_lastname, account_email } = req.body;
+  const updateResult = await accountModel.updateAccountById(account_id, {
+    account_firstname,
+    account_lastname,
+    account_email
+  });
+
+  if (updateResult) {
+    req.flash("notice", "Account information updated successfully.");
+  } else {
+    req.flash("notice", "Error updating account information.");
+  }
+
+  res.redirect(`/account/update/${account_id}`);
+}
+async function changePassword(req, res, next) {
+  const { account_id, account_password } = req.body;
+  const hashedPassword = await bcrypt.hash(account_password, 10);
+
+  const updateResult = await accountModel.updatePasswordById(account_id, hashedPassword);
+
+  if (updateResult) {
+    req.flash("notice", "Password updated successfully.");
+  } else {
+    req.flash("notice", "Error updating password.");
+  }
+
+  res.redirect(`/account/update/${account_id}`);
+}
+
+async function getAccountByEmail(email) {
+  return await accountModel.getAccountByEmail(email);
+}
 
 // Export the functions
-module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildManagement };
+module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildManagement, accountLogout, updateAccountView, updateAccount, changePassword, getAccountByEmail };

@@ -19,6 +19,8 @@ const utilities = require('./utilities')
 const session = require('express-session')
 const pool = require('./database')
 const bodyParser = require('body-parser')
+const flash = require('connect-flash');
+const jwt = require('jsonwebtoken');
 
 /* ***********************
  * Middleware
@@ -34,6 +36,10 @@ app.use(session({
   name: 'sessionId',
 }))
 
+app.use((req, res, next) => {
+  res.locals.user = req.session.user || null;
+  next();
+});
 
 // Express Messages Middleware
 app.use(require('connect-flash')())
@@ -46,6 +52,23 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser())
 app.use(utilities.checkJWTToken)
+
+// Middleware to set user in locals
+app.use((req, res, next) => {
+  if (req.cookies.jwt) {
+    jwt.verify(req.cookies.jwt, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+      if (!err) {
+        req.user = user;
+        res.locals.user = user;
+      } else {
+        res.locals.user = null;
+      }
+    });
+  } else {
+    res.locals.user = null;
+  }
+  next();
+});
 
 /* ***********************
  * View Engine and Templates

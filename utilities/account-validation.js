@@ -1,6 +1,6 @@
 const accountModel = require("../models/account-model")
 const utilities = require(".")
-const { body, validationResult } = require("express-validator")
+const { body, check, validationResult } = require("express-validator")
 const validate = {}
   
 
@@ -302,5 +302,64 @@ validate.checkUpdateData = async (req, res, next) => {
   next();
 };
 
+
+validate.updateAccountRules = () => {
+  return [
+    check("account_firstname").isLength({ min: 1 }).withMessage("First name is required."),
+    check("account_lastname").isLength({ min: 1 }).withMessage("Last name is required."),
+    check("account_email").isEmail().withMessage("A valid email is required.")
+      .custom(async (value, { req }) => {
+        const account = await accountController.getAccountByEmail(value);
+        if (account && account.account_id !== parseInt(req.body.account_id)) {
+          throw new Error("Email already in use.");
+        }
+        return true;
+      }),
+  ];
+};
+
+// Validation rules for password change
+validate.changePasswordRules = () => {
+  return [
+    check("account_password").isLength({ min: 8 }).withMessage("Password must be at least 8 characters long.")
+      .matches(/\d/).withMessage("Password must contain a number.")
+      .matches(/[a-z]/).withMessage("Password must contain a lowercase letter.")
+      .matches(/[A-Z]/).withMessage("Password must contain an uppercase letter."),
+  ];
+};
+
+// Check account update data and return errors or continue
+validate.checkUpdateAccountData = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav();
+    res.render("account/update-account", {
+      errors: errors.array(),
+      title: "Update Account Information",
+      nav,
+      user: req.body,
+      messages: req.flash('notice')
+    });
+    return;
+  }
+  next();
+};
+
+// Check password change data and return errors or continue
+validate.checkChangePasswordData = async (req, res, next) => {
+  const errors = validationResult(req);
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav();
+    res.render("account/update-account", {
+      errors: errors.array(),
+      title: "Update Account Information",
+      nav,
+      user: req.body,
+      messages: req.flash('notice')
+    });
+    return;
+  }
+  next();
+};
 
   module.exports = validate
