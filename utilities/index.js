@@ -62,26 +62,34 @@ Util.buildClassificationGrid = async function(data){
 /* ****************************************
  * Format vehicle detail for HTML display
  * **************************************** */
-Util.buildInvGrid = async function(data){ 
-let detail  // Initialize the detail list at the start
-    detail = '<div id="single-vehicle">';
-    data.forEach(vehicle => {
-      detail += '<img src="' + vehicle.inv_image+'" alt="Image of '+ vehicle.inv_make + ' ' + vehicle.inv_model +'">'
-      detail += '<div id="details">'
-      detail += '<h2>'+ vehicle.inv_make + ' ' + vehicle.inv_model + ' Details'+'</h2>'
-      detail += '<p>' + vehicle.inv_description + '</p>'
-      detail += '<p>' + 'Price: $' + new Intl.NumberFormat('en-US').format(vehicle.inv_price) + '</p>'
-      detail += '<p>' + 'Color: ' + vehicle.inv_color + '</p>'
-      detail += '<p>' + 'Make: ' + vehicle.inv_make + '</p>'
-      detail +='<p>'+ 'Model: ' + vehicle.inv_model + '</p>'
-      detail += '<p>'+ 'Year: ' +  vehicle.inv_year + '</p>'
-      detail += '<p>' + 'Total Mileage: ' + new Intl.NumberFormat('en-US').format(vehicle.inv_miles) + '</p>'
-    detail += '</div>'
-    detail += '</div>'
-    })
-  return detail
+Util.buildInvGrid = async function(data) {
+  let detail = '<div id="single-vehicle">';
+  data.forEach(vehicle => {
+      detail += `
+      <div id="vehicle-image">
+        <img src="${vehicle.inv_image}" alt="Image of ${vehicle.inv_make} ${vehicle.inv_model}">
+        <div id="details">
+        <h2>${vehicle.inv_make} ${vehicle.inv_model} Details</h2>
+        <p>${vehicle.inv_description}</p>
+        <p>Price: $${new Intl.NumberFormat('en-US').format(vehicle.inv_price)}</p>
+        <p>Color: ${vehicle.inv_color}</p>
+        <p>Make: ${vehicle.inv_make}</p>
+        <p>Model: ${vehicle.inv_model}</p>
+        <p>Year: ${vehicle.inv_year}</p>
+        <p>Total Mileage: ${new Intl.NumberFormat('en-US').format(vehicle.inv_miles)}</p>
+      </div>
+      </div>
+      <div id="test-drive">
+          <a href="/test-drive/register?make=${vehicle.inv_make}&model=${vehicle.inv_model}&year=${vehicle.inv_year}" title="Sign Up to Test Drive Today">
+            <h2>Wanna closer look?</h2>
+            <p>Click here to Test Drive the ${vehicle.inv_year} ${vehicle.inv_make} ${vehicle.inv_model} today!</p>
+          </a>
+        </div>
+    `;
+  });
+  detail += '</div>';
+  return detail;
 }
-
 /* ****************************************
  * adds vehicle detail for HTML display
  * **************************************** */

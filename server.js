@@ -15,6 +15,7 @@ const baseController = require("./controllers/baseController")
 const inventoryRoute = require("./routes/inventoryRoute");
 const accountRoute = require("./routes/accountRoute");
 const errorRoute = require("./routes/errorRoute"); 
+const testDriveRoute = require("./routes/testDriveRoute"); 
 const utilities = require('./utilities')
 const session = require('express-session')
 const pool = require('./database')
@@ -87,6 +88,7 @@ app.use("/inv", inventoryRoute)
  // need to make a seperate route for site name but assignement says to use the same route
 app.use("/site-name", inventoryRoute)
 app.use("/account", accountRoute)
+app.use("/test-drive", testDriveRoute)
 app.use(errorRoute)
 
 /* ***********************
