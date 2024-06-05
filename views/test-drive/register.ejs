@@ -4,45 +4,39 @@
 <% } else { %>
     <h1>Test Drive Registration Example page</h1>
 <% } %>
-
 <%- messages()  %>
 
-<form action="/test-drive/register" method="post">
+<form id="testDriveForm" action="/test-drive/register" method="post">
     <!-- Vehicle Information Fieldset -->
-    <fieldset>
-        <legend>Vehicle Information</legend>
-        <div class="form-group">
-            <label for="make">Make:</label>
-            <input type="text" id="make" name="make" value="<%= make %>" required  readonly>
-        </div>
-        <div class="form-group">
-            <label for="model">Model:</label>
-            <input type="text" id="model" name="model" value="<%= model %>" required  readonly>
-        </div>
-        <div class="form-group">
-            <label for="year">Year:</label>
-            <input type="text" id="year" name="year" value="<%= year %>" required  readonly>
-        </div>
-    </fieldset>
-    
+    <div>
+        <h1>This is Your Chance Today, to follow your Dreams!</h1>
+        <p> Send us a message and our nearby representative at CSE MOTORS will call you and schedule a free Test Drive with the car of your Dreams! Limited to one active Test Drive request per each customer.  </p>
+    </div>
+        <label for="car">Your Test Drive Selection:</label>
+        <input type="text" id="car" name="car" value="<%= year + ' ' + make + ' ' + model   %>" required  readonly>
+
     <!-- Personal Information Fieldset -->
     <fieldset>
         <legend>Personal Information</legend>
         <div class="form-group">
             <label for="firstName">First Name:</label>
-            <input type="text" id="firstName" name="firstName" value="<%= firstName %>" required>
+            <input type="text" id="firstName" name="firstName" placeholder="First Name" value="<%= firstName %>" required>
         </div>
         <div class="form-group">
             <label for="lastName">Last Name:</label>
-            <input type="text" id="lastName" name="lastName" value="<%= lastName %>" required>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name" value="<%= lastName %>" required>
         </div>
         <div class="form-group">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" value="<%= email %>" required>
+            <input type="email" id="email" name="email" placeholder="Email Address" value="<%= email %>" pattern="[^\s@]+@[^\s@]+\.[^\s@]+" required>
         </div>
         <div class="form-group">
             <label for="phone">Phone:</label>
-            <input type="tel" id="phone" name="phone" value="<%= phone %>" required>
+            <input type="tel" id="phone" name="phone"placeholder="xxx-xxx-xxxx" value="<%= phone %>" required>
+        </div>
+        <div class="form-group">
+            <label for="Age">Age:</label>
+            <input type="number" id="age" name="age" placeholder="Age"  required min="18" max="80" value="<%= age %>">
         </div>
     </fieldset>
 
@@ -50,15 +44,39 @@
     <fieldset>
         <legend>Driver's License Information</legend>
         <div class="form-group">
+            <label for="licenseState">Driver License State:</label>
+            <input type="text" id="licenseState" name="licenseState" placeholder="2 Letter State"  value="<%= licenseState %>" minlength="2" maxlength="2" pattern="[A-Z]{2}" required><span>*</span>
+        </div>
+        <div class="form-group">
+            <label for="licenseNumber">Driver License Number:</label>
+            <input type="text" id="licenseNumber" name="licenseNumber" placeholder="123456789" value="<%= licenseNumber %>" minlength="6" maxlength="14" required><span>*</span>
+        </div>
+        <div class="form-group">
             <label for="issDate">Driver License Issued:</label>
             <input type="date" id="issDate" name="issDate" value="<%= issDate %>" required>
+            <span>*</span>
         </div>
         <div class="form-group">
             <label for="expDate">Driver License Expiration:</label>
             <input type="date" id="expDate" name="expDate" value="<%= expDate %>" required>
+            <span>*</span>
         </div>
     </fieldset>
-    
+
+    <!-- hidden data to pass through the form -->
+    <div class="form-group">
+        <label for="make"></label>
+        <input type="text" id="make" name="make" value="<%= make %>" hidden>
+    </div>
+    <div class="form-group">
+        <label for="model"></label>
+        <input type="text" id="model" name="model" value="<%= model %>" hidden>
+    </div>
+    <div class="form-group">
+        <label for="year"></label>
+        <input type="text" id="year" name="year" value="<%= year %>" hidden>
+    </div>
     <!-- Submit Button -->
     <button type="submit">Submit</button>
 </form>
+<!-- <script src="/public/js/statepattern.js"></script> -->

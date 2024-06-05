@@ -19,9 +19,12 @@ CREATE TABLE test_drives (
     last_name VARCHAR(50) NOT NULL,
     email VARCHAR(100) NOT NULL,
     phone VARCHAR(15) NOT NULL,
+    age INT NOT NULL,
+    license_state VARCHAR(2) NOT NULL,
+    license_number VARCHAR(20) NOT NULL,
     iss_date DATE NOT NULL,
     exp_date DATE NOT NULL,
-    status VARCHAR(20) NOT NULL DEFAULT 'unanswered',
+    test_drive_status VARCHAR(20) NOT NULL DEFAULT 'unanswered',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
