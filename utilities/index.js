@@ -61,10 +61,16 @@ Util.buildClassificationGrid = async function(data){
 }
 /* ****************************************
  * Format vehicle detail for HTML display
+
+I learned the encodeURIComponet from this error
+Bad value /test-drive/register?make=FBI&model=Surveillance Van&year=2016
  * **************************************** */
 Util.buildInvGrid = async function(data) {
   let detail = '<div id="single-vehicle">';
   data.forEach(vehicle => {
+    const make = encodeURIComponent(vehicle.inv_make);
+    const model = encodeURIComponent(vehicle.inv_model);
+    const year = encodeURIComponent(vehicle.inv_year);
       detail += `
       <div id="vehicle-image">
         <img src="${vehicle.inv_image}" alt="Image of ${vehicle.inv_make} ${vehicle.inv_model}">
@@ -80,7 +86,7 @@ Util.buildInvGrid = async function(data) {
       </div>
       </div>
       <div id="test-drive">
-          <a href="/test-drive/register?make=${vehicle.inv_make}&model=${vehicle.inv_model}&year=${vehicle.inv_year}" title="Sign Up to Test Drive Today">
+          <a href="/test-drive/register?make=${make}&model=${model}&year=${year}" title="Sign Up to Test Drive Today">
             <h2>Wanna closer look?</h2>
             <p>Click here to Test Drive the ${vehicle.inv_year} ${vehicle.inv_make} ${vehicle.inv_model} today!</p>
           </a>

@@ -631,7 +631,7 @@ section.account-update form{
 .account-update input[type="submit"] {
 
   padding: 10px;
-  background-color: #175E28;
+  background-color: #2C6330;
   color: white;
   font-weight: 900;
   border: none;
@@ -730,7 +730,7 @@ form legend {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #4CAF50;
+  background-color: #2C6330;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -739,7 +739,7 @@ form legend {
 }
 
 .submit-button:hover {
-  background-color: #45a049;
+  background-color: #2C6330;
 }
 
 /*-------------------------------------------------*/
@@ -1072,7 +1072,7 @@ Week 4 css add ons
 .account-form button {
   display: block;
   padding: 10px;
-  background-color: #28a745;
+  background-color: #2C6330;
   color: white;
   border: none;
   border-radius: 4px;
@@ -1085,7 +1085,7 @@ Week 4 css add ons
 }
 
 .account-form button:hover {
-  background-color: #218838;
+  background-color: #2C6330;
 }
 
 .account-form p {
@@ -1120,7 +1120,7 @@ text-align: left;
 
 form#classForm button {
 padding: 10px;
-background-color: #28a745;
+background-color: #2C6330;
 color: black;
 font-weight: 900;
 border: none;
@@ -1249,7 +1249,7 @@ form legend {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #4CAF50;
+  background-color: #2C6330;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -1258,7 +1258,7 @@ form legend {
 }
 
 .submit-button:hover {
-  background-color: #45a049;
+  background-color: #2C6330;
 }
 
 }
@@ -1308,7 +1308,7 @@ form legend {
   }
   
   button {
-    background-color: #4CAF50;
+    background-color: #2C6330;
     color: white;
     padding: 5px 10px;
     margin: 2px;
@@ -1319,7 +1319,7 @@ form legend {
   }
   
   button:hover {
-    background-color: #45a049;
+    background-color: #2C6330;
   }
   
   button.spam {
