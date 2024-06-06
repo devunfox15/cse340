@@ -1,5 +1,20 @@
 const pool = require("../database/")
 
+async function getTestDriveRequests() {
+    const sql = `SELECT * FROM test_drives WHERE test_drive_status = 'unanswered'`;
+    const result = await pool.query(sql);
+    return result.rows.map(row => {
+        row.iss_date = formatDate(row.iss_date);
+        row.exp_date = formatDate(row.exp_date);
+        return row;
+    });
+}; 
+function formatDate(dateString) {
+    const options = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', options);
+}
+
 async function vehicleExists(make, model, year) {
     const sql = `SELECT * FROM public.inventory WHERE make = $1 AND model = $2 AND year = $3`;
     const params = [make, model, year];
@@ -19,11 +34,5 @@ async function vehicleExists(make, model, year) {
         const result = await pool.query(sql, params);
         return parseInt(result.rows[0].count, 10);
     }
-    async function tdName(first_name, last_name) {
-        const sql = `SELECT COUNT(*) FROM test_drives WHERE first_name = $1 AND last_name = $2`;
-        const params = [first_name , last_name];
-        const result = await pool.query(sql, params);
-        return parseInt(result.rows[0].count, 10);
-    }
 
-    module.exports = { vehicleExists, countCustomerTestDrives, tdPhone, tdName };
+    module.exports = { getTestDriveRequests, vehicleExists, countCustomerTestDrives, tdPhone };

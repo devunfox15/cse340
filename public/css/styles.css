@@ -649,6 +649,99 @@ section.account-update form{
   width: 80%;
 }
 
+
+#test-drive-table{
+  display: none;
+  margin: 0 auto;
+  width: 80%;
+}
+#desktop-warning {
+  display: block;
+  text-align: center;
+  color: red;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+#testDriveForm{
+  display: block;
+  margin: 0 auto;
+  width: 60%
+}
+.car-selection{
+  display: block;
+  margin: 0 auto;
+}
+.car-selection h2{
+  text-align: center;
+}
+.intro-section {
+  text-align: center;
+  margin-bottom: 20px;
+  
+}
+
+.intro-section h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.intro-section p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+form fieldset {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+form legend {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
 /*-------------------------------------------------*/
 /*this is css styles for the larger screens*/
 /*-------------------------------------------------*/
@@ -1089,6 +1182,84 @@ margin-top: 20px;
   margin: 0 auto;
   width: 60%;
 }
+#testDriveForm{
+  display: block;
+  margin: 0 auto;
+  width: 60%
+}
+.car-selection{
+  display: block;
+  margin: 0 auto;
+}
+.car-selection h2{
+  text-align: center;
+}
+.intro-section {
+  text-align: center;
+  margin-bottom: 20px;
+  
+}
+
+.intro-section h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.intro-section p {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 40px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+form fieldset {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  width: 80%;
+  margin: 0 auto;
+}
+
+form legend {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.submit-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
 
 }
 
@@ -1096,3 +1267,87 @@ margin-top: 20px;
 /*-------------------------------------------------*/
 
 
+@media screen and (min-width: 1024px) {
+  #desktop-warning {
+    display: none;
+  }
+  #test-drive-table{
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+  }
+  table { 
+  text-align: center;
+    width: 100%;
+    max-width: 1200px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9em;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  tr:hover {
+    background-color: #f1f1f1;
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    margin: 2px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9em;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  button.spam {
+    background-color: #f44336;
+  }
+  
+  button.spam:hover {
+    background-color: #e41e1e;
+  }
+  .collapse-content {
+    display: none;
+    background-color: #f9f9f9;
+  }
+  
+  .collapse-btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9em;
+    margin: 2px;
+  }
+  
+  .collapse-btn:hover {
+    background-color: #555;
+  }
+  
+
+}

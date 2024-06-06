@@ -1,0 +1,54 @@
+<% if (title) { %>
+    <h1><%= title %></h1>
+<% } %>
+<%- messages() %>
+<% if (errors && errors.length > 0) { %>
+    <div class="errors">
+        <% errors.forEach(error => { %>
+            <p><%= error.msg %></p>
+        <% }) %>
+    </div>
+<% } %>
+<div id="desktop-warning">
+    <p>This content is only available on desktop screens.</p>
+</div>
+<div id="test-drive-table">
+<table>
+    <thead>
+        <tr>
+            <th>'M M Y'</th>
+            <th>client</th>
+            <th>Contacts</th>
+            <th>License Info(state & Id)</th>
+            <th>Issued & Expires</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (testDrives && testDrives.length > 0) { %>
+            <% testDrives.forEach(drive => { %>
+                <tr>
+                    <td><%= drive.make %> <%= drive.model %> <%= drive.year %> </td>
+                    <td><%= drive.first_name %> <%= drive.last_name %><br> <%= drive.age %> yrs</td>
+                    <td><%= drive.email %> <br><br><%= drive.phone %></td>
+                    <td><%= drive.license_state %> <br> <%= drive.license_number %></td>
+                    <td><%= drive.iss_date %> <br><%= drive.exp_date %></td>
+                    <td>
+                        <form action="/test-drive/booked/<%= drive.id %>" method="POST" style="display:inline;">
+                            <button type="submit">Booked</button>
+                        </form>
+                        <form action="/test-drive/spam/<%= drive.id %>" method="POST" style="display:inline;">
+                            <button type="submit">Spam</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+        <% } else { %>
+            <tr>
+                <td colspan="13">No test drives found.</td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+</div>
+<script src="../../public/js/toogleRowDetails.js">
